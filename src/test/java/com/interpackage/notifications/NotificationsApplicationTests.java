@@ -1,4 +1,4 @@
-package src.test.java.com.interpackage.notifications;
+package com.interpackage.notifications;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

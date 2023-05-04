@@ -1,4 +1,4 @@
-package src.main.java.com.interpackage.notifications.model;
+package com.interpackage.notifications.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

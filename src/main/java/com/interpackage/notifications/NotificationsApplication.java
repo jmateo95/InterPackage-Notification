@@ -1,4 +1,4 @@
-package src.main.java.com.interpackage.notifications;
+package com.interpackage.notifications;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
