@@ -32,5 +32,4 @@ jobs:
           JAVA_SRC_PATH: "src/main/java"
           JAVA_TEST_PATH: "src/test/java"
           JAVA_EXCLUDE_PATH: "**/src/test/java/com/interpackage/notifications/*"
-          VALIDATE_ALL_CODEBASE: false
           JAVA_JAVADOC_VARIABLE: "false"
