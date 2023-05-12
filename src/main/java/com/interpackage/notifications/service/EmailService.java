@@ -1,3 +1,6 @@
+/**
+ * Detail package info.
+ */
 package com.interpackage.notifications.service;
 
 import com.interpackage.notifications.interfaces.EmailInterface;
@@ -21,18 +24,25 @@ import java.util.UUID;
 @Service
 public class EmailService implements EmailInterface {
 
+    /**
+     * The JavaMailSender used for sending emails.
+     */
     @Autowired
     private JavaMailSender javaMailSender;
-
+    /**
+     * The TemplateEngine used for generating email templates.
+     */
     @Autowired
     private TemplateEngine templateEngine;
 
     /**
      * Sends an email using a template with the given email values.
      * @param dto the EmailValues object containing the email details.
-     * @throws MessagingException if an error occurs while sending the email.
+     * @throws MessagingException if an error occurs while
+     * sending the email.
      */
-    public void sendEmailTemplate(EmailValues dto) throws MessagingException {
+    public void sendEmailTemplate
+    (final EmailValues dto) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         Context context = new Context();
@@ -58,7 +68,8 @@ public class EmailService implements EmailInterface {
      * @return a response entity indicating if the email was
      * sent successfully or not
      */
-    public ResponseEntity<Response> sendEmail(EmailValues dto, String mailFrom) {
+    public ResponseEntity<Response> sendEmail
+    (final EmailValues dto, final String mailFrom) {
         try {
             dto.setMailFrom(mailFrom);
             dto.setSubject("Notificación.");

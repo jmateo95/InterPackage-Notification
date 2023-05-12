@@ -1,3 +1,6 @@
+/**
+ * Detail package info.
+ */
 package com.interpackage.notifications.controller;
 
 import com.interpackage.notifications.model.EmailValues;
@@ -19,8 +22,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(Constants.API_NOTIFICATION_V1 + "/email")
 public class EmailController {
 
+    
+    /**
+     * `@Autowired` is a Spring annotation that injects an instance 
+     * of the `EmailService` class into the `emailService` field. 
+     * This allows the `EmailController` to use the methods 
+     * provided by the `EmailService` class.
+     */
     @Autowired
     private EmailService emailService;
+    /** `@Value("${spring.mail.username}")` is a Spring annotation 
+     * that injects the value of the property `spring.mail.username` from 
+     * the application properties file into the `mailFrom` field.
+     * This allows the `EmailController` to use the email address
+     * specified in the application properties file as the sender 
+     * of the email.
+     */ 
     @Value("${spring.mail.username}")
     private String mailFrom;
 
@@ -38,7 +55,8 @@ public class EmailController {
      *         result of the operation
      */
     @PostMapping("/send-email")
-    public ResponseEntity<Response> sendEmailTemplate(@RequestBody EmailValues dto) {
+    public ResponseEntity<Response> sendEmailTemplate
+    (final @RequestBody EmailValues dto) {
         return emailService.sendEmail(dto, mailFrom);
     }
 }

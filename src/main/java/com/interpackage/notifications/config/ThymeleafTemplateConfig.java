@@ -1,3 +1,6 @@
+/**
+ * Detail package info.
+ */
 package com.interpackage.notifications.config;
 
 import org.springframework.context.annotation.Bean;
@@ -14,8 +17,9 @@ public class ThymeleafTemplateConfig {
      * @return a ClassLoaderTemplateResolver object with the specified settings.
      */
     @Bean
-    public ClassLoaderTemplateResolver templateResolver () {
-        ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
+    public ClassLoaderTemplateResolver templateResolver() {
+        ClassLoaderTemplateResolver resolver
+                = new ClassLoaderTemplateResolver();
         resolver.setPrefix("templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
