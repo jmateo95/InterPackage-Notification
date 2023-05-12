@@ -1,5 +1,5 @@
 /**
- * Detail package info.
+ * Este archivo es para controlar las interfaces
  */
 package com.interpackage.notifications.interfaces;
 

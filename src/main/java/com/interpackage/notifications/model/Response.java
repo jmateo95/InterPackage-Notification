@@ -1,5 +1,6 @@
 /**
- * Detail package info.
+ * Este archivo es para la
+ * definición de modelos
  */
 package com.interpackage.notifications.model;
 
@@ -20,7 +21,7 @@ public class Response {
      * Class constructor specifying a message.
      * @param message the message to be set for the response
      */
-    public Response(final String message){
+    public Response(final String message) {
         this.message = message;
     }
 

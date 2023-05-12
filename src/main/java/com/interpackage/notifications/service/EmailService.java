@@ -1,5 +1,5 @@
 /**
- * Detail package info.
+ * Packete para menejar los servicios
  */
 package com.interpackage.notifications.service;
 
@@ -41,8 +41,8 @@ public class EmailService implements EmailInterface {
      * @throws MessagingException if an error occurs while
      * sending the email.
      */
-    public void sendEmailTemplate
-    (final EmailValues dto) throws MessagingException {
+    public void sendEmailTemplate(
+            final EmailValues dto) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         Context context = new Context();
@@ -68,8 +68,8 @@ public class EmailService implements EmailInterface {
      * @return a response entity indicating if the email was
      * sent successfully or not
      */
-    public ResponseEntity<Response> sendEmail
-    (final EmailValues dto, final String mailFrom) {
+    public ResponseEntity<Response> sendEmail(
+            final EmailValues dto, final String mailFrom) {
         try {
             dto.setMailFrom(mailFrom);
             dto.setSubject("Notificación.");

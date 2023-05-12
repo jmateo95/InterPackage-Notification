@@ -1,5 +1,5 @@
 /**
- * Detail package info.
+ * Este archivo es para configuraciones
  */
 package com.interpackage.notifications.config;
 
