@@ -1,9 +1,8 @@
 package com.interpackage.notifications.model;
 
+import com.interpackage.notifications.util.Constants;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +16,10 @@ public class NotificationType {
     @Column (name = "id_notification_type", nullable = false)
     private Long idNotificationType;
 
-    @Column (name = "notification_type_name", nullable = false, length = 75)
+    @Column (name = "notification_type_name", nullable = false, length = Constants.LENGTH_75)
     private String name;
 
-    @Column (name = "notification_type_description", nullable = false, length = 500)
+    @Column (name = "notification_type_description", nullable = false, length = Constants.LENGTH_500)
     private String description;
 
     @OneToMany(mappedBy = "notificationType", cascade = CascadeType.ALL, orphanRemoval = true)
