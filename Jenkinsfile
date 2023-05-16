@@ -40,8 +40,8 @@ pipeline {
 
         stage('Detener en Produccion') {
             steps {
-                sh 'ssh root@164.90.232.216 "docker stop interpackage-docker-service-notification-1"'
-                sh 'ssh root@164.90.232.216 "docker rm interpackage-docker-service-notification-1"'
+                sh 'ssh root@164.90.232.216 "docker stop interpackage-docker-interpackage-service-notification-1"'
+                sh 'ssh root@164.90.232.216 "docker rm interpackage-docker-interpackage-service-notification-1"'
             }
         }
 
