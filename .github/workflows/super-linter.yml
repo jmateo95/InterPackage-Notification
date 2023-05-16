@@ -8,9 +8,9 @@ name: Lint Code Base
 
 on:
   push:
-    branches: [ "main","devG" ]
+    branches: 
   pull_request:
-    branches: [ "main","devG" ]
+    branches: 
 jobs:
   run-lint:
     runs-on: ubuntu-latest
@@ -27,3 +27,9 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_JAVASCRIPT: false
+          VALIDATE_JAVA: true
+          JAVA_SRC_PATH: "src/main/java"
+          JAVA_TEST_PATH: "src/test/java"
+          JAVA_EXCLUDE_PATH: "**/src/test/java/com/interpackage/notifications/*"
+          JAVA_JAVADOC_VARIABLE: "false"
