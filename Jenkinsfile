@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Test Y Creacion de JAR') {
+        stage('Test Y Creacion de Jar') {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
                 sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin main && mvn clean install -DskipTests"'
