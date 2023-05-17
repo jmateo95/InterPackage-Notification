@@ -34,6 +34,25 @@ public final class Constants {
     public static final String HOST = "http://localhost:";
 
     /**
+     * The Role Admin.
+     */
+    public static final String ROLE_ADMIN = "ADMIN";
+
+    /**
+     * The Role Operator.
+     */
+    public static final String ROLE_OPERATOR = "Operator";
+
+    /**
+     * The Role Client.
+     */
+    public static final String ROLE_CLIENT = "CLIENT";
+
+    /**
+     * The Role Receptionist.
+     */
+    public static final String ROLE_RECEPTIONIST = "RECEPTIONIST";
+    /**
      * Private constructor to prevent instantiation.
      */
     private Constants() {
