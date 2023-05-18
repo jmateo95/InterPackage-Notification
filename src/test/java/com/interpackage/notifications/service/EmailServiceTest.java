@@ -22,6 +22,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import com.interpackage.resources.PostgreSQLExtension;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -29,12 +30,16 @@ import com.interpackage.notifications.interfaces.EmailInterface;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.model.Response;
 import com.interpackage.notifications.util.Constants;
+import org.springframework.test.annotation.DirtiesContext;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import jakarta.mail.internet.MimeMessage;
 
 @Testcontainers
 @SpringBootTest
-class EmailServiceTest extends AbstractIntegrationTest {
+@ExtendWith(PostgreSQLExtension.class)
+@DirtiesContext
+class EmailServiceTest {
 
     @Autowired
     private EmailInterface emailService;
