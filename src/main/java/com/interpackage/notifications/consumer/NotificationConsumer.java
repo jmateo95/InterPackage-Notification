@@ -37,17 +37,17 @@ public class NotificationConsumer {
     @KafkaListener(
             topics = "${spring.kafka.topic.name}",
             groupId = "${spring.kafka.email-consumer.group-id}")
-    public void consume(UserEvent event){
+    public void consume(final UserEvent event) {
         EmailValues dto = new EmailValues();
         dto.setUsername(event.user.userName);
         dto.setMailTo(event.user.email);
         dto.setSubject("Correo de Bienvenida");
-        dto.setMessage("¡Bienvenido al equipo de InterPackageGT " + event.user.name + "!\n\n" +
-                "Estamos emocionados de tenerte como parte de nuestro equipo de trabajadores dedicados\n" +
-                "al envío de paquetes. Tu dedicación y habilidades serán fundamentales para brindar un\n" +
-                "servicio excepcional a nuestros clientes. Juntos, hagamos que cada envío cuente.\n" +
-                "\n\n" +
-                "¡Bienvenido y éxito en tu carrera con InterPackageGT!");
+        dto.setMessage("¡Bienvenido al equipo de InterPackageGT " + event.user.name + "!\n\n"
+                + "Estamos emocionados de tenerte como parte de nuestro equipo de trabajadores dedicados\n"
+                + "al envío de paquetes. Tu dedicación y habilidades serán fundamentales para brindar un\n"
+                + "servicio excepcional a nuestros clientes. Juntos, hagamos que cada envío cuente.\n"
+                + "\n\n"
+                + "¡Bienvenido y éxito en tu carrera con InterPackageGT!");
         emailService.sendEmail(dto, mailFrom);
     }
 }
