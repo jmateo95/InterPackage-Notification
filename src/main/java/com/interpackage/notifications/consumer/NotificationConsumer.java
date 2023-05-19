@@ -1,3 +1,10 @@
+/**
+ * Este paquete contiene las clases relacionadas
+ * con el consumidor de notificaciones.
+ * @since 1.0
+ * @author BryanGmz
+ * @version 1.0
+ */
 package com.interpackage.notifications.consumer;
 
 import com.interpackage.basedomains.dto.UserEvent;
@@ -42,10 +49,14 @@ public class NotificationConsumer {
         dto.setUsername(event.user.userName);
         dto.setMailTo(event.user.email);
         dto.setSubject("Correo de Bienvenida");
-        dto.setMessage("¡Bienvenido al equipo de InterPackageGT " + event.user.name + "!\n\n"
-                + "Estamos emocionados de tenerte como parte de nuestro equipo de trabajadores dedicados\n"
-                + "al envío de paquetes. Tu dedicación y habilidades serán fundamentales para brindar un\n"
-                + "servicio excepcional a nuestros clientes. Juntos, hagamos que cada envío cuente.\n"
+        dto.setMessage("¡Bienvenido al equipo de InterPackageGT "
+                + event.user.name + "!\n\n"
+                + "Estamos emocionados de tenerte como parte de "
+                + "nuestro equipo de trabajadores dedicados\n"
+                + "al envío de paquetes. Tu dedicación y habilidades "
+                + "serán fundamentales para brindar un\n"
+                + "servicio excepcional a nuestros clientes. " +
+                "Juntos, hagamos que cada envío cuente.\n"
                 + "\n\n"
                 + "¡Bienvenido y éxito en tu carrera con InterPackageGT!");
         emailService.sendEmail(dto, mailFrom);
