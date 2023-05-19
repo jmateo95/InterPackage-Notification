@@ -4,4 +4,4 @@
  * @author BryanGmz
  * @version 1.0
  */
-package com.interpackage.notifications;
+package com.interpackage.notifications.consumer;

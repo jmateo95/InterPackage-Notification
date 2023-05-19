@@ -19,7 +19,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class EmailService implements EmailInterface {
@@ -72,8 +71,6 @@ public class EmailService implements EmailInterface {
             final EmailValues dto, final String mailFrom) {
         try {
             dto.setMailFrom(mailFrom);
-            dto.setSubject("Notificación.");
-            dto.setMessage("Mensaje de prueba: " + UUID.randomUUID());
             sendEmailTemplate(dto);
             Map<String, Object> map = new HashMap<>();
             return new ResponseEntity<>(
