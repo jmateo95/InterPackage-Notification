@@ -22,7 +22,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import com.interpackage.resources.PostgreSQLExtension;
+import com.interpackage.notifications.PostgreSQLExtension;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
