@@ -8,6 +8,7 @@
 package com.interpackage.notifications.consumer;
 
 import com.interpackage.basedomains.dto.UserEvent;
+import com.interpackage.basedomains.models.OrderModel;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,28 @@ public class NotificationConsumer {
                 + "Juntos, hagamos que cada envío cuente.\n"
                 + "\n\n"
                 + "¡Bienvenido y éxito en tu carrera con InterPackageGT!");
+        emailService.sendEmail(dto, mailFrom);
+    }
+
+    @KafkaListener(
+            topics = "${spring.kafka.topic.invoice.notification.name}",
+            groupId = "${spring.kafka.email-consumer.group-id}")
+    public void sendInvoiceMail(final OrderModel event){
+        EmailValues dto = new EmailValues();
+        dto.setUsername(event.getClient());
+        dto.setMailTo(event.getEmail());
+        dto.setSubject("Correo de Bienvenida");
+        var message = """
+                Estimado client: %s
+                Su orden ha sido <br> generado exitosamente y se encuentra 
+                en estado de %s con un numero de guia de %s .
+                """.formatted(
+                        event.getClient(),
+                        event.getStatus(),
+                        event.getId()
+                );
+
+        dto.setMessage(message);
         emailService.sendEmail(dto, mailFrom);
     }
 }

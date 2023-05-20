@@ -1,4 +1,4 @@
-package com.interpackage.resources;
+package com.interpackage.notifications;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
