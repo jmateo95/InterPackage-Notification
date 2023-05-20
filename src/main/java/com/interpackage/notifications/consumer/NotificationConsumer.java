@@ -73,7 +73,7 @@ public class NotificationConsumer {
         dto.setSubject("Correo de Bienvenida");
         var message = """
                 Estimado client: %s
-                Su orden ha sido <br> generado exitosamente y se encuentra 
+                Su orden ha sido generado exitosamente y se encuentra 
                 en estado de %s con un numero de guia de %s .
                 """.formatted(
                         event.getClient(),
