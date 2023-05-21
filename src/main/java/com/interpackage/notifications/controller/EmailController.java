@@ -3,7 +3,7 @@
  */
 package com.interpackage.notifications.controller;
 
-import com.interpackage.basedomains.aspect.RequiredRole;
+import com.interpackage.notifications.aspect.RequiredRole;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.model.Response;
 import com.interpackage.notifications.service.EmailService;
