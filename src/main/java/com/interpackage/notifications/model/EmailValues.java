@@ -23,4 +23,7 @@ public class EmailValues {
 
     /** The message content of the email */
     private String message;
+
+    /** The qr in base64 */
+    private String qrBase64;
 }

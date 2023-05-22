@@ -41,7 +41,7 @@ public final class Constants {
     /**
      * The Role Operator.
      */
-    public static final String ROLE_OPERATOR = "Operator";
+    public static final String ROLE_OPERATOR = "OPERATOR";
 
     /**
      * The Role Client.
@@ -52,6 +52,37 @@ public final class Constants {
      * The Role Receptionist.
      */
     public static final String ROLE_RECEPTIONIST = "RECEPTIONIST";
+
+    /**
+     * The description welcome header.
+     */
+    public static final String WELCOME_HEADER = "¡Bienvenido a InterPackageGT ";
+
+    /**
+     * The description welcome body client.
+     */
+    public static final String WELCOME_BODY_CLIENT = """
+            Somos expertos en la entrega de paquetes. Nuestro compromiso es
+            brindarte un servicio confiable, seguro y eficiente. Con nuestro 
+            equipo capacitado y una infraestructura sólida, garantizamos que
+            tus envíos lleguen a tiempo y en perfectas condiciones.
+                        
+            Confía en InterPackageGT para una experiencia de entrega excepcional.
+            
+            ¡Bienvenido(a) a nuestra familia!
+            """;
+
+    /**
+     * The description welcome body worker.
+     */
+    public static final String WELCOME_BODY_WORKER = """
+        Estamos emocionados de tenerte como parte de nuestro equipo de trabajadores dedicados
+        al envío de paquetes. Tu dedicación y habilidades serán fundamentales para brindar un
+        servicio excepcional a nuestros clientes. Juntos, hagamos que cada envío cuente.
+
+        ¡Bienvenido y éxito en tu carrera con InterPackageGT!
+        """;
+
     /**
      * Private constructor to prevent instantiation.
      */

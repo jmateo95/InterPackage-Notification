@@ -5,35 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Objects;
 import java.util.UUID;
 
-import com.interpackage.notifications.AbstractIntegrationTest;
+import com.interpackage.notifications.PostgreSQLExtension;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.util.TestPropertyValues;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.test.context.ContextConfiguration;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import com.interpackage.resources.PostgreSQLExtension;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
 
 import com.interpackage.notifications.interfaces.EmailInterface;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.model.Response;
-import com.interpackage.notifications.util.Constants;
 import org.springframework.test.annotation.DirtiesContext;
 import org.junit.jupiter.api.extension.ExtendWith;
-
-import jakarta.mail.internet.MimeMessage;
 
 @Testcontainers
 @SpringBootTest
