@@ -14,6 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import com.interpackage.notifications.PostgreSQLExtension;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import com.interpackage.notifications.interfaces.EmailInterface;
 import com.interpackage.notifications.model.EmailValues;

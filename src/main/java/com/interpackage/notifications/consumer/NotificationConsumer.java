@@ -8,6 +8,7 @@
 package com.interpackage.notifications.consumer;
 
 import com.interpackage.basedomains.dto.*;
+import com.interpackage.basedomains.models.OrderModel;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.service.EmailService;
 import com.interpackage.notifications.util.Constants;
@@ -125,6 +126,28 @@ public class NotificationConsumer {
         dto.setQrBase64(event.getQr());
         dto.setSubject("Código QR");
         dto.setMessage("¡A continuación se adjunta el código QR de tu envió!");
+        emailService.sendEmail(dto, mailFrom);
+    }
+
+    @KafkaListener(
+            topics = "${spring.kafka.topic.invoice.notification.name}",
+            groupId = "${spring.kafka.email-consumer.group-id}")
+    public void sendInvoiceMail(final OrderModel event){
+        EmailValues dto = new EmailValues();
+        dto.setUsername(event.getClient());
+        dto.setMailTo(event.getEmail());
+        dto.setSubject("Correo de Bienvenida");
+        var message = """
+                Estimado client: %s
+                Su orden ha sido generado exitosamente y se encuentra 
+                en estado de %s con un numero de guia de %s .
+                """.formatted(
+                        event.getClient(),
+                        event.getStatus(),
+                        event.getId()
+                );
+
+        dto.setMessage(message);
         emailService.sendEmail(dto, mailFrom);
     }
 }

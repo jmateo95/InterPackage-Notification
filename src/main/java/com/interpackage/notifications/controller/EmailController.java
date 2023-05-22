@@ -3,6 +3,7 @@
  */
 package com.interpackage.notifications.controller;
 
+import com.interpackage.notifications.aspect.RequiredRole;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.model.Response;
 import com.interpackage.notifications.service.EmailService;
@@ -54,11 +55,11 @@ public class EmailController {
      *         result of the operation
      */
     @PostMapping("/send-email")
-    /* @RequiredRole({
+    @RequiredRole({
             Constants.ROLE_ADMIN,
             Constants.ROLE_CLIENT,
             Constants.ROLE_OPERATOR,
-            Constants.ROLE_RECEPTIONIST})*/
+            Constants.ROLE_RECEPTIONIST})
     public ResponseEntity<Response> sendEmailTemplate(
             final @RequestBody EmailValues dto) {
         return emailService.sendEmail(dto, mailFrom);
