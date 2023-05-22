@@ -58,7 +58,7 @@ public class NotificationConsumer {
         dto.setSubject("Correo de Bienvenida");
         dto.setMessage(Constants.WELCOME_HEADER
                 + event.user.name + "!\n\n"
-                + (event.user.role.equalsIgnoreCase(Constants.ROLE_CLIENT)
+                + (event.user.role.equalsIgnoreCase(Constants.ID_ROLE_CLIENT.toString())
                 ? Constants.WELCOME_BODY_CLIENT
                 : Constants.WELCOME_BODY_WORKER));
         emailService.sendEmail(dto, mailFrom);
