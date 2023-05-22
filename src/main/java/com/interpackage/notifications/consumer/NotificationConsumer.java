@@ -129,7 +129,7 @@ public class NotificationConsumer {
         dto.setMailTo(event.getOrder().getEmail());
         dto.setQrBase64(event.getQr());
         dto.setSubject("Código QR");
-        dto.setMessage("¡A continuación se adjunta el código QR de tu envió!");
+        dto.setMessage("¡A continuación se adjunta el código QR de tu envió, junto a tú número de seguimiento: " + event.getOrder().getId());
         emailService.sendEmail(dto, mailFrom);
     }
 
