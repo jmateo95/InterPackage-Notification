@@ -46,7 +46,7 @@ public final class Constants {
     /**
      * The Role Client.
      */
-    public static final String ROLE_CLIENT = "CLIENT";
+    public static final String ROLE_CLIENT = "Client";
 
     /**
      * The Role Receptionist.

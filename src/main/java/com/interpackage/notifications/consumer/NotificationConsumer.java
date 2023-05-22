@@ -12,6 +12,8 @@ import com.interpackage.basedomains.models.OrderModel;
 import com.interpackage.notifications.model.EmailValues;
 import com.interpackage.notifications.service.EmailService;
 import com.interpackage.notifications.util.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -19,6 +21,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationConsumer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NotificationConsumer.class);
 
     /**
      * `@Autowired` is a Spring annotation that injects an instance
@@ -47,6 +51,7 @@ public class NotificationConsumer {
             topics = "${spring.kafka.topic.name}",
             groupId = "${spring.kafka.email-consumer.group-id}")
     public void consume(final UserEvent event) {
+        LOGGER.error(String.format("Event => %s", event.toString()));
         EmailValues dto = new EmailValues();
         dto.setUsername(event.user.userName);
         dto.setMailTo(event.user.email);
