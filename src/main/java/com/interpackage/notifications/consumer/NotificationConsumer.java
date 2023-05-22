@@ -82,8 +82,7 @@ public class NotificationConsumer {
             dto.setMessage("¡Nueva ruta agregada!\n\n"
                     + "InterPackageGT se enorgullece en anunciar la incorporación de la\n"
                     + "nueva ruta \"" + event.route.getName() + "\". Ahora podrás enviar tus\n"
-                    + "paquetes desde \"" + event.route.origin +  "\", hasta \"" + event.route.destination + "\",\n"
-                    + "de manera rápida y segura.\n\n"
+                    + "paquetes de manera rápida y segura.\n\n"
                     + "Confía en InterPackageGT para la entrega confiable de tus paquetes.\n\n"
                     + "¡Descubre nuestra nueva ruta y disfruta de un servicio excepcional!"
             );
