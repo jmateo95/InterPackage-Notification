@@ -7,27 +7,27 @@ pipeline {
     }
 
     stages {
-        stage('TEST Y JAR DEV') {
-            steps {
-                checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
-                sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && mvn clean install"'
-            }
-        }
+        // stage('TEST Y JAR DEV') {
+        //     steps {
+        //         checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
+        //         sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && mvn clean install"'
+        //     }
+        // }
 
-        stage('Detener El Servicio Docker') {
-            steps {
-                sh 'ssh root@137.184.209.89 "docker stop interpackage-docker-interpackage-service-notification-1"'
-                sh 'ssh root@137.184.209.89 "docker rm interpackage-docker-interpackage-service-notification-1"'
-            }
-        }
+        // stage('Detener El Servicio Docker') {
+        //     steps {
+        //         sh 'ssh root@137.184.209.89 "docker stop interpackage-docker-interpackage-service-notification-1"'
+        //         sh 'ssh root@137.184.209.89 "docker rm interpackage-docker-interpackage-service-notification-1"'
+        //     }
+        // }
 
-        stage ('Desplegar Imgen de Docker'){
-            steps{
-                script{
-                    sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Docker && docker-compose up -d --build interpackage-service-notification"'
-                }
-            }  
-        }
+        // stage ('Desplegar Imgen de Docker'){
+        //     steps{
+        //         script{
+        //             sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Docker && docker-compose up -d --build interpackage-service-notification"'
+        //         }
+        //     }  
+        // }
 
 
         stage('Merge a Main') {
