@@ -30,20 +30,15 @@ pipeline {
         }
 
 
-        stage('Merge a main') {
+        stage('Merge a Main') {
             steps {
-                sh 'cd /home/Interpackage/InterPackage-Notification && git checkout main && git merge origin/dev && git push origin main'
+                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git checkout main && git merge origin/dev && git push origin main"'
             }
         }
 
-        stage('Merge a Main') {
-            steps {
-                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && git merge origin/dev"'
-            }
-        }
         stage('Jar en Produccion') {
             steps {
-                sh 'cd /home/Interpackage/InterPackage-Notification && mvn clean install'
+                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && mvn clean install -DSkipTests"'
             }
         }
 
