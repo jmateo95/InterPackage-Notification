@@ -13,23 +13,19 @@ pipeline {
                 sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && mvn clean install"'
             }
         }
-
-        // stage('Detener El Servicio Docker') {
-        //     steps {
-        //         sh 'ssh root@137.184.209.89 "docker stop interpackage-docker-interpackage-service-notification-1"'
-        //         sh 'ssh root@137.184.209.89 "docker rm interpackage-docker-interpackage-service-notification-1"'
-        //     }
-        // }
-
-        // stage ('Desplegar Imgen de Docker'){
-        //     steps{
-        //         script{
-        //             sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Docker && docker-compose up -d --build interpackage-service-notification"'
-        //         }
-        //     }  
-        // }
-
-
+        stage('Detener El Servicio Docker') {
+            steps {
+                sh 'ssh root@137.184.209.89 "docker stop interpackage-docker-interpackage-service-notification-1"'
+                sh 'ssh root@137.184.209.89 "docker rm interpackage-docker-interpackage-service-notification-1"'
+            }
+        }
+        stage ('Desplegar Imgen de Docker'){
+            steps{
+                script{
+                    sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Docker && docker-compose up -d --build interpackage-service-notification"'
+                }
+            }  
+        }
         stage('Merge a Main') {
             steps {
                 sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git checkout main && git merge origin/dev && git push origin main"'
