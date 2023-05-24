@@ -32,7 +32,7 @@ pipeline {
 
         stage('Merge a main') {
             steps {
-                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && git merge dev && git push origin main"'
+                sh 'cd /home/Interpackage/InterPackage-Notification && git checkout main && git merge origin/dev && git push origin main'
             }
         }
 
@@ -44,7 +44,8 @@ pipeline {
         }
         stage('Jar en Produccion') {
             steps {
-                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git pull origin main && mvn clean install"'
+                checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
+                sh 'cd /home/Interpackage/InterPackage-Notification && mvn clean install'
             }
         }
 
