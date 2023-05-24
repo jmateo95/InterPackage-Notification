@@ -8,11 +8,11 @@ pipeline {
 
     stages {
         // stage('TEST Y JAR DEV') {
-        //     steps {
-        //         checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
-        //         sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && mvn clean install"'
-        //     }
-        // }
+            steps {
+                checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
+                sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && mvn clean install"'
+            }
+        }
 
         // stage('Detener El Servicio Docker') {
         //     steps {
