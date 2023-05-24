@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Test Y Creacion de JAR') {
+        stage('TEST Y JAR DEV') {
             steps {
                 checkout scmGit(branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
                 sh 'ssh root@137.184.209.89 "cd /home/Interpackage/InterPackage-Notification && git pull origin main && mvn clean install"'
@@ -36,6 +36,12 @@ pipeline {
             }
         }
 
+        stage('Merge a Main') {
+            steps {
+                checkout scmGit(branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jmateo95/InterPackage-Notification']])
+                sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git pull origin dev && git merge origin/dev"'
+            }
+        }
         stage('Jar en Produccion') {
             steps {
                 sh 'ssh root@164.90.232.216 "cd /home/Interpackage/InterPackage-Notification && git pull origin main && mvn clean install"'
